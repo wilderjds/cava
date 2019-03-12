@@ -18,7 +18,7 @@ double monstercat, integral, gravity, ignore, sens;
 unsigned int lowcf, highcf;
 double *smooth;
 int smcount, customEQ, im, om, col, bgcol, autobars, stereo, is_bin, ascii_range,
- bit_format, gradient, gradient_count, fixedbars, framerate, bw, bs, autosens, overshoot, waves;
+ bit_format, gradient, gradient_count, gradient_discrete, fixedbars, framerate, bw, bs, autosens, overshoot, waves;
 
 };
 
@@ -333,6 +333,7 @@ bool load_colors(struct config_params * p, dictionary* ini, void* err) {
                 return false;
             }
         }
+        p->gradient_discrete = iniparser_getint(ini, "color:gradient_discrete", 0);
         //p->gradient_color_1 = (char *)iniparser_getstring(ini, "color:gradient_color_1", "#0099ff");
         //p->gradient_color_2 = (char *)iniparser_getstring(ini, "color:gradient_color_2", "#ff3399");
     }
