@@ -357,6 +357,7 @@ bool load_colors(struct config_params *p, dictionary *ini, void *err) {
             strdup(iniparser_getstring(ini, "color:gradient_color_7", "#cc5933"));
         p->gradient_colors[7] =
             strdup(iniparser_getstring(ini, "color:gradient_color_8", "#cc3333"));
+        p->gradient_discrete = iniparser_getint(ini, "color:gradient_discrete", 0);
     }
     return true;
 }
