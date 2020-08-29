@@ -191,8 +191,8 @@ int draw_terminal_ncurses(int is_tty, int terminal_height, int terminal_width, i
                           int bar_width, int bar_spacing, int rest, const int f[200],
                           int flastd[200], int gradient) {
     const int height = terminal_height - 1;
-    const wchar_t *bar_heights[] = {L"\u2581", L"\u2582", L"\u2583", L"\u2584",
-                                    L"\u2585", L"\u2586", L"\u2587", L"\u2588"};
+    const wchar_t* bar_heights[] = {L"", L"\uE0B8", L"\uE0B9",
+         L"\uE0BA", L"\uE0BB", L"\uE0BC", L"\uE0BD", L"\uE0BE"};
     int num_bar_heights = (sizeof(bar_heights) / sizeof(bar_heights[0]));
 
     // output: check if terminal has been resized
