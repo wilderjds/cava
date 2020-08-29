@@ -542,7 +542,7 @@ as of 0.4.0 all options are specified in config file, see in '/home/username/.co
             // output: start ncurses mode
             case OUTPUT_NCURSES:
                 init_terminal_ncurses(p.color, p.bcolor, p.col, p.bgcol, p.gradient,
-                                      p.gradient_count, p.gradient_colors, &width, &lines);
+                                      p.gradient_count, p.gradient_colors, p.gradient_discrete, &width, &lines);
                 // we have 8 times as much height due to using 1/8 block characters
                 height = lines * 8;
                 break;

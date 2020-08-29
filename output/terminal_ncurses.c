@@ -67,7 +67,7 @@ static NCURSES_COLOR_T change_color_definition(NCURSES_COLOR_T color_number,
 
 void init_terminal_ncurses(char *const fg_color_string, char *const bg_color_string,
                            int predef_fg_color, int predef_bg_color, int gradient,
-                           int gradient_count, char **gradient_colors, int *width, int *lines) {
+                           int gradient_count, char **gradient_colors, int gradient_discrete,  int *width, int *lines) {
     initscr();
     curs_set(0);
     timeout(0);
@@ -127,8 +127,10 @@ void init_terminal_ncurses(char *const fg_color_string, char *const bg_color_str
             for (int j = 0; j < individual_size; j++) {
 
                 for (int k = 0; k < 3; k++) {
-                    rgb[col + 1][k] = rgb[col][k] + (rgb[col + 2][k] - rgb[col][k]) *
-                                                        (j / (individual_size * 0.85));
+                    if (gradient_discrete)
+                        rgb[col+1][k] = rgb[col][k];
+                    else
+                        rgb[col+1][k] = rgb[col][k] + (rgb[col+2][k] - rgb[col][k]) * (j / (individual_size * 0.85));
                     if (rgb[col + 1][k] > 255)
                         rgb[col][k] = 0;
                     if (j > individual_size * 0.85)
